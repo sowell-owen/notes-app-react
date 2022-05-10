@@ -55,22 +55,22 @@ export default function App() {
   }, [darkMode])
 
   return (
-    <div className={`${darkMode && 'dark-mode'}`}>
+    // <div className={`${darkMode && 'dark-mode'}`}>
 
-      <div className='container'>
-        <Header
-          handleToggleDarkMode={setDarkMode}
-          darkMode={darkMode}
-        />
-        <Search handleSearchNote={setSeacrhText} darkMode={darkMode} />
-        <NotesList
-          notesData={notes.filter((note) => note.text.toLowerCase().includes(seacrhText))}
-          handleAddNote={addNote}
-          handleDeleteNote={deleteNote}
-          darkMode={darkMode}
-        />
-      </div>
-
+    <div className={`${darkMode ? 'container dark-mode' : 'container'}`}>
+      <Header
+        handleToggleDarkMode={setDarkMode}
+        darkMode={darkMode}
+      />
+      <Search handleSearchNote={setSeacrhText} darkMode={darkMode} />
+      <NotesList
+        notesData={notes.filter((note) => note.text.toLowerCase().includes(seacrhText))}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+        darkMode={darkMode}
+      />
     </div>
+
+    //</div>
   )
 }
